@@ -39,8 +39,8 @@ def calculate_topsis(df, selected_columns, direction_list):
         "纬度": df["纬度"],
         "TOPSIS得分": CR
     })
-    min_lat = result['经度'].min()
-    min_lon = result['纬度'].min()
+    min_lon = result['经度'].min()
+    min_lat = result['纬度'].min()
     result['Distance'] = np.sqrt((result['经度'] - min_lat)**2 + (result['纬度'] - min_lon)**2)
     result_sorted = result.sort_values(by='Distance').reset_index(drop=True)
     result_sorted = result_sorted.drop(columns='Distance')
